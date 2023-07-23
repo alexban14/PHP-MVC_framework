@@ -1,0 +1,15 @@
+{
+    "name": "banco/php-mvc_framework",
+    "authors": [
+        {
+            "name": "Ban Alex",
+            "email": "alexbanut10@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
