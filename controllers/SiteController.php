@@ -3,21 +3,34 @@
 namespace app\controllers;
 
 use app\core\Application;
+use app\core\Controller;
+use app\core\Request;
 
 /**
  * Class Application
  * @author Ban Alexandru <alexandru.ban@gsdgroup.net>
  * @package app\core
  **/
-class SiteController
+class SiteController extends Controller
 {
-    public function contact()
+    public function home()
     {
-        return Application::$app->router->renderView('contact');
+        $params = [
+            'name' => 'Ban Alexandru'
+        ];
+        return Application::$app->router->renderView('home', $params);
     }
 
-    public function handleContact()
+    public function contact()
     {
-        return 'Handling submited data';
+        return $this->render('contact');
+    }
+
+    public function handleContact(Request $request)
+    {
+        $body = $request->getBody();
+        echo '<pre>';
+        var_dump($body);
+        echo '</pre>';
     }
 }

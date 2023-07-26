@@ -45,13 +45,13 @@ class Router
             return $this->renderView($callback);    
         }
 
-        return call_user_func($callback);
+        return call_user_func($callback, $this->request);
     } 
 
-    public function renderView($view)
+    public function renderView($view, $params = [])
     {
         $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view);
+        $viewContent = $this->renderOnlyView($view, $params);
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 
@@ -62,9 +62,14 @@ class Router
         return ob_get_clean();
     }
 
-    protected function renderOnlyView($view)
+    protected function renderOnlyView($view, $params)
     {
-        ob_start();
+        foreach ($params as $key => $value) {
+            // accesing the variables from the controller method that is being called
+            // if "$$key" evaluates as name, it will be evaluted as name variable
+            $$key = $value;
+        }
+        // now the layout automatically sees the variables
         include_once Application::$ROOT_DIR . "/views/$view.php";
         return ob_get_clean();
     }
