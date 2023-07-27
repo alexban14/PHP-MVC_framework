@@ -30,7 +30,7 @@ class SiteController extends Controller
     {
         $body = $request->getBody();
         echo '<pre>';
-        var_dump($body);
+        print_r($body);
         echo '</pre>';
     }
 }
