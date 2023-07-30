@@ -5,7 +5,7 @@ namespace app\core;
 
 /**
  * Class Response
- * @author Ban Alexandru <alexandru.ban@gsdgroup.net>
+ * @author Ban Alexandru <alexbanut10@gmail.com>
  * @package app\core
  **/
 class Response

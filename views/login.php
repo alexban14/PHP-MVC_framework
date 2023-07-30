@@ -19,10 +19,6 @@
           <label for="password" class="form-label">Password</label>
           <input class="form-control" type="password" name="password" id="password">
         </div>
-        <div class="mb-3">
-          <label for="confirmPassword" class="form-label">Confirm Password</label>
-          <input class="form-control" type="confirmPassword" name="confirmPassword" id="confirmPassword">
-        </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </div>

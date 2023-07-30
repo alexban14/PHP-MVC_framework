@@ -4,7 +4,7 @@ namespace app\core;
 
 /**
  * Class Request
- * @author Ban Alexandru <alexandru.ban@gsdgroup.net>
+ * @author Ban Alexandru <alexbanut10@gmail.com>
  * @package app\core
  **/
 class Request

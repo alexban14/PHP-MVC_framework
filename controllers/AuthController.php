@@ -4,10 +4,11 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\core\Request;
+use app\models\RegisterModel;
 
 /**
  * Class AuthController
- * @author Ban Alexandru <alexandru.ban@gsdgroup.net>
+ * @author Ban Alexandru <alexbanut10@gmail.com>
  * @package app\core
  **/
 class AuthController extends Controller
@@ -21,7 +22,22 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        if ($request->isPost()) return "Handling register";
-        return $this->render('register');
+        $registerModel = new RegisterModel();
+        if ($request->isPost()) {
+            $registerModel->loadData($request->getBody());
+            
+            if ($registerModel->validate() && $registerModel->register()) {
+                return 'Success';
+            }
+
+            return $this->render('register', [
+                'model' => $registerModel
+            ]);
+        }
+
+        $this->setLayout('auth');
+        return $this->render('register', [
+            'model' => $registerModel
+        ]);
     }
 }

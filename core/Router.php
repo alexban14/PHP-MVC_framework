@@ -5,7 +5,7 @@ namespace app\core;
 /**
  * Class Router
  *
- * @author Ban Alexandru <alexandru.ban@gsdgroup.net>
+ * @author Ban Alexandru <alexbanut10@gmail.com>
  * @package app\core
  * */
 class Router
@@ -46,8 +46,8 @@ class Router
         }
 
         if (is_array($callback)) {
-            Application::$app->controller = new $callback[0];
-            $callback[0] = new $callback[0];
+            Application::$app->controller = new $callback[0]();
+            $callback[0] = Application::$app->controller;
         }
 
         return call_user_func($callback, $this->request);

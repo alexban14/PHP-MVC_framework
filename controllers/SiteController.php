@@ -8,13 +8,14 @@ use app\core\Request;
 
 /**
  * Class Application
- * @author Ban Alexandru <alexandru.ban@gsdgroup.net>
+ * @author Ban Alexandru <alexbanut10@gmail.com>
  * @package app\core
  **/
 class SiteController extends Controller
 {
     public function home()
     {
+        $this->setLayout('main');
         $params = [
             'name' => 'Ban Alexandru'
         ];
@@ -23,6 +24,7 @@ class SiteController extends Controller
 
     public function contact()
     {
+        $this->setLayout('main');
         return $this->render('contact');
     }
 
